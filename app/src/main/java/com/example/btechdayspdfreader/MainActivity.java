@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private List<File> pdfList;
     private RecyclerView recyclerView;
 
+    private ArrayList<File> arrayList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +56,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public ArrayList<File> findPdf(File file) {
-        ArrayList<File> arrayList = new ArrayList<>();
 
+        if (file.listFiles() == null) {
+            return arrayList;
+        }
         File[] files = file.listFiles();
         //System.out.println(files);
         for (File singleFile : files) {
