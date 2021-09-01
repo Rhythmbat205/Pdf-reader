@@ -10,6 +10,7 @@ import android.os.Environment;
 
 import com.example.btechdayspdfreader.R;
 import com.example.btechdayspdfreader.functions.PDFFinder;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private MainAdapter adapter;
     private List<File> pdfList;
     private RecyclerView recyclerView;
+    private ExtendedFloatingActionButton refreshBtn;
 
     private PDFFinder pdfFinder;
 
@@ -37,10 +39,14 @@ public class MainActivity extends AppCompatActivity {
         init();
 
         runtimePermission();
+
+        refreshBtn.setOnClickListener( view -> pdfList = pdfFinder.findPdf(Environment.getExternalStorageDirectory()));
     }
 
     private void init() {
         pdfFinder = new PDFFinder();
+
+        refreshBtn = (findViewById(R.id.refresh_btn));
     }
 
     private void runtimePermission(){
