@@ -1,4 +1,4 @@
-package com.example.btechdayspdfreader;
+package com.example.btechdayspdfreader.ui;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.btechdayspdfreader.R;
 
 import java.io.File;
 import java.util.List;
